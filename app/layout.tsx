@@ -54,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={manrope.variable}>
-      <body className="antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
+      <body className="antialiased min-h-screen flex flex-col text-slate-900 font-sans">
         <Navbar />
         {children}
         <Footer />

@@ -3,17 +3,15 @@ import React from 'react';
 interface MetricCardProps {
     value: string;
     label: string;
-    icon?: React.ReactNode;
 }
 
-export default function MetricCard({ value, label, icon }: MetricCardProps) {
+export default function MetricCard({ value, label }: MetricCardProps) {
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {icon && <div className="text-3xl mb-3 text-brand-orange">{icon}</div>}
-            <div className="text-3xl md:text-4xl font-bold text-brand-blue mb-1">
+        <div className="flex flex-col items-center text-center p-4">
+            <div className="text-4xl md:text-5xl font-semibold text-slate-900 mb-2 tracking-tight">
                 {value}
             </div>
-            <div className="text-sm font-medium text-brand-gray uppercase tracking-wide">
+            <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">
                 {label}
             </div>
         </div>

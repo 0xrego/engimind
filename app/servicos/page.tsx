@@ -37,58 +37,54 @@ export default function Servicos() {
     ];
 
     return (
-        <main className="flex-grow bg-slate-50">
+        <main className="flex-grow bg-white">
             {/* Hero Section */}
-            <section className="bg-brand-blue py-20 md:py-28 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-blue opacity-50"></div>
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <Badge className="mb-6 bg-white/10 text-white border border-white/20 backdrop-blur-md">
-                        Soluções Integradas
-                    </Badge>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                        Serviços de Engenharia e Consultoria
+            <section className="pt-32 pb-16 md:pt-48 md:pb-32 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold tracking-wide uppercase mb-8">
+                        O que fazemos
+                    </div>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 mb-8 tracking-tight leading-[1.05]">
+                        Serviços de Engenharia e Consultoria.
                     </h1>
-                    <p className="text-xl text-brand-light/90 max-w-3xl mx-auto font-light leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
                         Oferecemos uma abordagem multidisciplinar aos desafios da mobilidade, combinando know-how técnico, tecnologia de ponta e uma visão estratégica do território.
                     </p>
                 </div>
             </section>
 
             {/* Services Grid */}
-            <Section className="bg-white">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Section className="bg-white border-t border-slate-100 section-padding">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24">
                     {services.map((service, idx) => (
-                        <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full">
-                            <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <div key={idx} className="group">
+                            <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-500">
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-brand-blue mb-4 min-h-[3.5rem] group-hover:text-brand-orange transition-colors">
+                            <h3 className="text-2xl font-semibold text-slate-900 mb-4 min-h-[3.5rem]">
                                 {service.title}
                             </h3>
-                            <p className="text-brand-gray leading-relaxed flex-grow">
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
                                 {service.description}
                             </p>
-                            <div className="mt-6 pt-6 border-t border-slate-50">
-                                <Link href="/contactos" className="inline-flex items-center text-sm font-bold text-brand-blue hover:text-brand-orange transition-colors uppercase tracking-wide">
-                                    Pedir cotação <span className="ml-2">→</span>
-                                </Link>
-                            </div>
+                            <Link href="/contactos" className="text-slate-900 font-medium hover:text-brand-blue transition-colors">
+                                Pedir cotação <span className="ml-2">→</span>
+                            </Link>
                         </div>
                     ))}
                 </div>
             </Section>
 
             {/* CTA Section */}
-            <Section className="bg-brand-blue text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/4"></div>
-                <div className="relative z-10 text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-6">Precisa de uma solução à medida?</h2>
-                    <p className="text-brand-light/80 text-lg mb-8">
+            <Section className="bg-slate-50 section-padding">
+                <div className="text-center max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-8">Precisa de uma solução à medida?</h2>
+                    <p className="text-slate-500 text-xl mb-12 leading-relaxed">
                         Cada projeto tem as suas especificidades. A nossa equipa está preparada para analisar o seu caso e propor a metodologia mais adequada.
                     </p>
                     <Link
                         href="/contactos"
-                        className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-brand-blue transition-all duration-200 bg-white rounded-xl hover:bg-brand-light shadow-lg hover:-translate-y-1"
+                        className="btn-primary"
                     >
                         Fale com um Especialista
                     </Link>

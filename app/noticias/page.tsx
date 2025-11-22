@@ -39,51 +39,50 @@ export default function Noticias() {
     ];
 
     return (
-        <main className="flex-grow bg-slate-50">
+        <main className="flex-grow bg-white">
             {/* Hero Section */}
-            <section className="bg-brand-blue py-20 md:py-28 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-blue opacity-50"></div>
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <Badge className="mb-6 bg-white/10 text-white border border-white/20 backdrop-blur-md">
+            <section className="pt-32 pb-16 md:pt-48 md:pb-32 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold tracking-wide uppercase mb-8">
                         Atualidade
-                    </Badge>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                        Notícias e Distinções
+                    </div>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 mb-8 tracking-tight leading-[1.05]">
+                        Notícias e Distinções.
                     </h1>
-                    <p className="text-xl text-brand-light/90 max-w-3xl mx-auto font-light leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
                         Acompanhe as novidades da ENGIMIND, os novos projetos ganhos e o reconhecimento público do nosso trabalho.
                     </p>
                 </div>
             </section>
 
             {/* News Grid */}
-            <Section className="bg-white">
-                <div className="grid gap-8 max-w-4xl mx-auto">
+            <Section className="bg-white border-t border-slate-100 section-padding">
+                <div className="grid gap-20 max-w-4xl mx-auto">
                     {newsItems.map((item) => (
-                        <article key={item.id} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col md:flex-row gap-8 items-start">
-                            <div className="flex-shrink-0 w-full md:w-48 h-48 bg-brand-light/30 rounded-2xl flex items-center justify-center text-6xl border border-brand-light/50">
+                        <article key={item.id} className="group flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+                            <div className="flex-shrink-0 w-full md:w-64 h-48 bg-slate-50 rounded-[2rem] flex items-center justify-center text-6xl group-hover:scale-[1.02] transition-transform duration-500">
                                 {item.image}
                             </div>
-                            <div className="flex-grow">
+                            <div className="flex-grow pt-2">
                                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 bg-brand-orange/10 text-brand-orange text-xs font-bold rounded-full uppercase tracking-wide">
+                                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider bg-slate-100 px-2 py-1 rounded-md">
                                         {item.category}
                                     </span>
-                                    <span className="text-sm text-brand-gray font-medium">
+                                    <span className="text-xs text-slate-400 font-medium">
                                         {item.date}
                                     </span>
                                 </div>
-                                <h2 className="text-2xl font-bold text-brand-blue mb-3 group-hover:text-brand-orange transition-colors cursor-pointer">
+                                <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors cursor-pointer leading-tight">
                                     <Link href="#">{item.title}</Link>
                                 </h2>
-                                <p className="text-brand-gray leading-relaxed mb-6">
+                                <p className="text-slate-500 text-lg leading-relaxed mb-6">
                                     {item.summary}
                                 </p>
                                 <Link
                                     href="#"
-                                    className="inline-flex items-center text-brand-blue font-bold hover:text-brand-orange transition-colors group/link"
+                                    className="inline-flex items-center text-sm font-medium text-slate-900 hover:text-brand-blue transition-colors"
                                 >
-                                    Ler artigo completo <span className="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+                                    Ler artigo completo <span className="ml-2">→</span>
                                 </Link>
                             </div>
                         </article>

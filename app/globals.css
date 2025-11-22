@@ -3,13 +3,15 @@
 @theme {
   --color-brand-blue: #003b66;
   --color-brand-blue-light: #005a9e;
-  --color-brand-light: #e5f0f9;
+  --color-brand-light: #f5f7fa;
+  /* Lighter, more subtle */
   --color-brand-orange: #f15a24;
   --color-brand-orange-light: #ff7a45;
-  --color-brand-gray: #4b5563;
+  --color-brand-gray: #64748b;
+  /* Softer gray */
 
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
 }
 
 /* Custom Utilities & Base Styles */
@@ -20,11 +22,15 @@
 
   body {
     min-height: 100vh;
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #ffffff;
+    /* Pure white */
+    color: #1d1d1f;
+    /* Apple-like near-black */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    /* Tighter tracking for modern feel */
   }
 
   h1,
@@ -33,16 +39,35 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight text-brand-blue;
+    @apply font-semibold tracking-tight text-brand-blue;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-orange;
+    @apply text-brand-blue;
+    /* Removed gradient for cleaner look */
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/50 shadow-lg;
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-sm;
+    /* More subtle glass effect */
+  }
+
+  /* New subtle utilities */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply inline-flex justify-center items-center px-8 py-4 bg-slate-900 text-white font-medium rounded-full hover:bg-slate-800 transition-all duration-300 ease-out hover:-translate-y-1;
+  }
+
+  .btn-secondary {
+    @apply inline-flex justify-center items-center px-8 py-4 bg-slate-100 text-slate-900 font-medium rounded-full hover:bg-slate-200 transition-all duration-300 ease-out hover:-translate-y-1;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
   }
 }
