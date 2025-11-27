@@ -12,12 +12,14 @@ export default function Navbar() {
     const isActive = (path: string) => pathname === path;
 
     const navLinks = [
-        { name: "Engimind", href: "/empresa" },
-        { name: "Serviços", href: "/servicos" },
-        { name: "Projetos", href: "/projetos" },
-        { name: "Clientes", href: "/clientes" },
-        { name: "Notícias", href: "/noticias" },
-        { name: "Contactos", href: "/contactos" },
+        { name: "Sobre Nós", href: "/about" },
+        { name: "Serviços", href: "/services" },
+        { name: "Qualidade", href: "/quality" },
+        { name: "Projetos", href: "/projects" },
+        { name: "Clientes", href: "/clients" },
+        { name: "Notícias", href: "/news" },
+        { name: "Formação", href: "/courses" },
+        { name: "Contactos", href: "/contacts" },
     ];
 
     return (
@@ -45,8 +47,8 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`text-sm transition-colors duration-200 ${isActive(link.href)
-                                        ? 'text-slate-900 font-semibold'
-                                        : 'text-slate-500 hover:text-slate-900 font-medium'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900 font-medium'
                                     }`}
                             >
                                 {link.name}
@@ -87,8 +89,8 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`block px-3 py-3 rounded-lg text-base transition-colors ${isActive(link.href)
-                                        ? 'text-slate-900 font-semibold bg-slate-50'
-                                        : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50 font-medium'
+                                    ? 'text-slate-900 font-semibold bg-slate-50'
+                                    : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50 font-medium'
                                     }`}
                                 onClick={() => setIsOpen(false)}
                             >

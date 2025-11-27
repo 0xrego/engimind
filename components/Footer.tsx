@@ -23,10 +23,10 @@ export default function Footer() {
                     <div>
                         <h3 className="font-semibold text-slate-900 mb-4">Empresa</h3>
                         <ul className="space-y-3 text-slate-500">
-                            <li><Link href="/empresa" className="hover:text-slate-900 transition-colors">Sobre nós</Link></li>
-                            <li><Link href="/servicos" className="hover:text-slate-900 transition-colors">Serviços</Link></li>
-                            <li><Link href="/projetos" className="hover:text-slate-900 transition-colors">Projetos</Link></li>
-                            <li><Link href="/noticias" className="hover:text-slate-900 transition-colors">Notícias</Link></li>
+                            <li><Link href="/about" className="hover:text-slate-900 transition-colors">Sobre nós</Link></li>
+                            <li><Link href="/services" className="hover:text-slate-900 transition-colors">Serviços</Link></li>
+                            <li><Link href="/projects" className="hover:text-slate-900 transition-colors">Projetos</Link></li>
+                            <li><Link href="/news" className="hover:text-slate-900 transition-colors">Notícias</Link></li>
                         </ul>
                     </div>
 
@@ -45,7 +45,12 @@ export default function Footer() {
                 <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs">
                     <p>&copy; {new Date().getFullYear()} ENGIMIND. Todos os direitos reservados.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
-                        <Link href="#" className="hover:text-slate-600 transition-colors">Privacidade</Link>
+                        <Link
+                            href="/privacy"
+                            className="text-slate-400 hover:text-white transition-colors text-sm"
+                        >
+                            Privacidade
+                        </Link>
                         <Link href="#" className="hover:text-slate-600 transition-colors">Termos</Link>
                     </div>
                 </div>

@@ -1,33 +1,32 @@
-import React from 'react';
+import React from "react";
 
 interface SectionProps {
     children: React.ReactNode;
     className?: string;
-    title?: string;
-    subtitle?: string;
     id?: string;
+    background?: "white" | "light" | "dark";
 }
 
-export default function Section({ children, className = "", title, subtitle, id }: SectionProps) {
+const Section: React.FC<SectionProps> = ({
+    children,
+    className = "",
+    id,
+    background = "white",
+}) => {
+    const bgClasses = {
+        white: "bg-white text-slate-900",
+        light: "bg-slate-50 text-slate-900",
+        dark: "bg-slate-900 text-white",
+    };
+
     return (
-        <section id={id} className={`py-16 md:py-24 ${className}`}>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {(title || subtitle) && (
-                    <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
-                        {title && (
-                            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-4 tracking-tight">
-                                {title}
-                            </h2>
-                        )}
-                        {subtitle && (
-                            <p className="text-lg text-brand-gray leading-relaxed">
-                                {subtitle}
-                            </p>
-                        )}
-                    </div>
-                )}
-                {children}
-            </div>
+        <section
+            id={id}
+            className={`py-16 md:py-24 ${bgClasses[background]} ${className}`}
+        >
+            <div className="container mx-auto px-6">{children}</div>
         </section>
     );
-}
+};
+
+export default Section;
