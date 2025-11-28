@@ -1,60 +1,123 @@
 import Link from "next/link";
 
 export default function Footer() {
-    return (
-        <footer className="bg-slate-50 border-t border-slate-200 pt-16 pb-8 text-sm">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+  const currentYear = new Date().getFullYear();
 
-                    {/* Brand & Desc */}
-                    <div className="md:col-span-2">
-                        <h3 className="font-semibold text-slate-900 mb-4 text-base">ENGIMIND</h3>
-                        <p className="text-slate-500 leading-relaxed max-w-sm mb-6">
-                            Consultoria de referência em mobilidade, transportes e engenharia de infraestruturas. Planeamos cidades mais eficientes e sustentáveis.
-                        </p>
-                        <div className="flex gap-4 text-xs font-medium text-slate-400 uppercase tracking-wide">
-                            <span>PME Líder</span>
-                            <span>•</span>
-                            <span>PME Excelência</span>
-                        </div>
-                    </div>
-
-                    {/* Links */}
-                    <div>
-                        <h3 className="font-semibold text-slate-900 mb-4">Empresa</h3>
-                        <ul className="space-y-3 text-slate-500">
-                            <li><Link href="/about" className="hover:text-slate-900 transition-colors">Sobre nós</Link></li>
-                            <li><Link href="/services" className="hover:text-slate-900 transition-colors">Serviços</Link></li>
-                            <li><Link href="/projects" className="hover:text-slate-900 transition-colors">Projetos</Link></li>
-                            <li><Link href="/news" className="hover:text-slate-900 transition-colors">Notícias</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Contactos */}
-                    <div>
-                        <h3 className="font-semibold text-slate-900 mb-4">Contactos</h3>
-                        <ul className="space-y-3 text-slate-500">
-                            <li>Lisboa, Portugal</li>
-                            <li>São Paulo, Brasil</li>
-                            <li><a href="mailto:info@engimind.com" className="hover:text-slate-900 transition-colors">info@engimind.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs">
-                    <p>&copy; {new Date().getFullYear()} ENGIMIND. Todos os direitos reservados.</p>
-                    <div className="flex space-x-6 mt-4 md:mt-0">
-                        <Link
-                            href="/privacy"
-                            className="text-slate-400 hover:text-white transition-colors text-sm"
-                        >
-                            Privacidade
-                        </Link>
-                        <Link href="#" className="hover:text-slate-600 transition-colors">Termos</Link>
-                    </div>
-                </div>
+  return (
+    <footer className="bg-[#0a0a0a] text-white section-spacing">
+      <div className="container-editorial">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <h2 className="text-2xl md:text-3xl font-medium mb-4">ENGIMIND</h2>
+            <p className="text-white/60 text-lg leading-relaxed max-w-md mb-6">
+              Consultoria de referência em mobilidade, transportes e engenharia
+              de infraestruturas. Planeamos cidades mais eficientes e
+              sustentáveis.
+            </p>
+            <div className="flex gap-6">
+              <span className="text-sm text-white/40 uppercase tracking-wider">
+                PME Líder
+              </span>
+              <span className="text-white/20">·</span>
+              <span className="text-sm text-white/40 uppercase tracking-wider">
+                PME Excelência
+              </span>
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Navigation */}
+          <div className="md:col-span-2 md:col-start-7">
+            <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-4">
+              Navegação
+            </h3>
+            <nav className="space-y-4">
+              <Link
+                href="/projects"
+                className="block text-white/80 hover:text-white transition-colors"
+              >
+                Projetos
+              </Link>
+              <Link
+                href="/services"
+                className="block text-white/80 hover:text-white transition-colors"
+              >
+                Serviços
+              </Link>
+              <Link
+                href="/about"
+                className="block text-white/80 hover:text-white transition-colors"
+              >
+                Sobre
+              </Link>
+              <Link
+                href="/news"
+                className="block text-white/80 hover:text-white transition-colors"
+              >
+                Notícias
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contacts */}
+          <div className="md:col-span-4">
+            <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-4">
+              Contactos
+            </h3>
+            <div className="space-y-4">
+              {/* Lisboa */}
+              <div>
+                <p className="text-white font-medium mb-1">Lisboa</p>
+                <p className="text-white/60 text-sm">
+                  Av. Defensores de Chaves, nº 4, 1º
+                  <br />
+                  1000-120 Lisboa, Portugal
+                </p>
+              </div>
+              {/* São Paulo */}
+              <div>
+                <p className="text-white font-medium mb-1">São Paulo</p>
+                <p className="text-white/60 text-sm">
+                  Rua Gomes de Carvalho, 1629
+                  <br />
+                  04547-006 Vila Olímpia, Brasil
+                </p>
+              </div>
+              {/* Email */}
+              <div>
+                <a
+                  href="mailto:engimind@engimind.com"
+                  className="text-white hover:text-white/80 transition-colors"
+                >
+                  engimind@engimind.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-sm text-white/40">
+            © {currentYear} ENGIMIND. Todos os direitos reservados.
+          </p>
+          <div className="flex gap-6">
+            <Link
+              href="/privacy"
+              className="text-sm text-white/40 hover:text-white/80 transition-colors"
+            >
+              Privacidade
+            </Link>
+            <Link
+              href="/contacts"
+              className="text-sm text-white/40 hover:text-white/80 transition-colors"
+            >
+              Contactos
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

@@ -1,85 +1,117 @@
-import Hero from "@/components/Hero";
+import BigHero from "@/components/BigHero";
 import Section from "@/components/Section";
 
+export const metadata = {
+  title: "Clientes",
+  description: "Conheça os clientes da ENGIMIND: administração pública, operadores de transportes e promotores privados.",
+};
+
 export default function Clients() {
-    const clientCategories = [
-        {
-            title: "Administração Central",
-            description:
-                "Colaboramos com organismos governamentais na definição e execução de políticas nacionais de transportes.",
-        },
-        {
-            title: "Administração Local",
-            description:
-                "Apoiamos Câmaras Municipais e autarquias no desenvolvimento de Planos de Mobilidade e gestão de tráfego urbano.",
-        },
-        {
-            title: "Gestores de Infraestruturas",
-            description:
-                "Trabalhamos com concessionárias de autoestradas, aeroportos e portos para otimizar a operação e segurança.",
-        },
-        {
-            title: "Operadores de Transportes",
-            description:
-                "Auxiliamos empresas de transporte público na reestruturação de redes e otimização da oferta.",
-        },
-        {
-            title: "Promotores Imobiliários",
-            description:
-                "Realizamos estudos de tráfego e acessibilidades para centros comerciais, loteamentos e grandes empreendimentos.",
-        },
-    ];
+  const clientCategories = [
+    {
+      name: "Administração Central",
+      description: "Ministérios e entidades governamentais responsáveis pelas políticas de transportes e mobilidade.",
+    },
+    {
+      name: "Administração Local",
+      description: "Câmaras Municipais e autoridades regionais que planeiam e gerem a mobilidade nas suas cidades.",
+    },
+    {
+      name: "Gestores de Infraestruturas",
+      description: "Entidades que gerem redes de estradas, aeroportos, portos e outras infraestruturas de transporte.",
+    },
+    {
+      name: "Operadores de Transportes",
+      description: "Empresas de transporte público e privado que operam serviços de mobilidade.",
+    },
+    {
+      name: "Projetistas e Consultores",
+      description: "Empresas de engenharia e consultoria que desenvolvem projetos de infraestruturas.",
+    },
+    {
+      name: "Promotores e Operadores Comerciais",
+      description: "Promotores imobiliários e operadores de centros comerciais e grandes superfícies.",
+    },
+  ];
 
-    return (
-        <main>
-            <Hero
-                title="Clientes e Parceiros"
-                subtitle="A confiança de quem constrói o futuro connosco."
-                backgroundImage="/images/hero-clients.jpg"
-            />
+  return (
+    <>
+      {/* Hero */}
+      <BigHero
+        title="Clientes"
+        subtitle="Trabalhamos com uma diversidade significativa de clientes públicos e privados."
+        backgroundImage="/images/projeto-mobilidade.jpg"
+        caption="Parcerias"
+        size="default"
+      />
 
-            <Section>
-                <div className="max-w-4xl mx-auto text-center mb-16">
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        A ENGIMIND trabalha com uma significativa diversidade de clientes,
-                        públicos e privados, desenvolvendo soluções desenhadas para dar
-                        resposta às especificações de cada situação. Combinamos inovação com
-                        a experiência adquirida em centenas de projetos.
-                    </p>
-                </div>
+      {/* Intro */}
+      <Section background="white" spacing="large">
+        <div className="max-w-3xl">
+          <p className="text-xl md:text-2xl text-[#525252] leading-relaxed">
+            A ENGIMIND trabalha com uma significativa diversidade de clientes
+            públicos e privados, desenvolvendo soluções desenhadas para dar
+            resposta às especificações de cada situação, combinando a inovação de
+            cada caso com a experiência adquirida em projetos desenvolvidos.
+          </p>
+        </div>
+      </Section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                    {clientCategories.map((category, index) => (
-                        <div
-                            key={index}
-                            className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all"
-                        >
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">
-                                {category.title}
-                            </h3>
-                            <p className="text-slate-600">{category.description}</p>
-                        </div>
-                    ))}
-                </div>
+      {/* Client Categories */}
+      <Section background="light" spacing="large">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {clientCategories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-white p-8 hover:shadow-lg transition-shadow duration-300"
+            >
+              <span className="text-5xl font-medium text-[#e5e5e5] block mb-6">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-xl font-medium mb-4">{category.name}</h3>
+              <p className="text-body">{category.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-                {/* Placeholder for Client Logos Grid - In a real scenario, we would map through logo images */}
-                <div className="bg-slate-50 rounded-3xl p-12 text-center">
-                    <h2 className="text-2xl font-bold mb-8 text-slate-900">
-                        Alguns dos nossos clientes
-                    </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 opacity-60 grayscale">
-                        {/* Placeholder items for logos */}
-                        {[...Array(12)].map((_, i) => (
-                            <div
-                                key={i}
-                                className="h-16 bg-slate-200 rounded-lg flex items-center justify-center text-xs text-slate-500 font-medium"
-                            >
-                                LOGO CLIENTE {i + 1}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </Section>
-        </main>
-    );
+      {/* Stats */}
+      <Section background="dark" spacing="default">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <span className="block text-4xl md:text-5xl font-medium text-white mb-2">
+              +100
+            </span>
+            <span className="text-sm text-white/50 uppercase tracking-wider">
+              Clientes
+            </span>
+          </div>
+          <div>
+            <span className="block text-4xl md:text-5xl font-medium text-white mb-2">
+              +500
+            </span>
+            <span className="text-sm text-white/50 uppercase tracking-wider">
+              Projetos
+            </span>
+          </div>
+          <div>
+            <span className="block text-4xl md:text-5xl font-medium text-white mb-2">
+              4
+            </span>
+            <span className="text-sm text-white/50 uppercase tracking-wider">
+              Continentes
+            </span>
+          </div>
+          <div>
+            <span className="block text-4xl md:text-5xl font-medium text-white mb-2">
+              +15
+            </span>
+            <span className="text-sm text-white/50 uppercase tracking-wider">
+              Anos
+            </span>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
 }

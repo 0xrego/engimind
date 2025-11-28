@@ -1,128 +1,146 @@
-import Hero from "@/components/Hero";
 import Section from "@/components/Section";
+import { companyInfo } from "@/content/team";
+
+export const metadata = {
+  title: "Contactos",
+  description: "Entre em contacto com a ENGIMIND. Escritórios em Lisboa e São Paulo.",
+};
 
 export default function Contacts() {
-    return (
-        <main>
-            <Hero
-                title="Contactos"
-                subtitle="Estamos disponíveis para responder às suas questões e desafios."
-                backgroundImage="/images/hero-contacts.jpg"
-            />
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-white pt-24 pb-12">
+        <div className="container-editorial">
+          <div className="max-w-3xl">
+            <p className="text-caption mb-4">Contactos</p>
+            <h1 className="text-display mb-8">
+              Vamos conversar
+            </h1>
+            <p className="text-xl text-[#525252] leading-relaxed">
+              Estamos disponíveis para discutir o seu projeto, esclarecer
+              dúvidas ou simplesmente trocar ideias sobre mobilidade e
+              transportes.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <Section>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <div>
-                        <h2 className="text-3xl font-bold mb-8 text-slate-900">
-                            Fale Connosco
-                        </h2>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label
-                                        htmlFor="name"
-                                        className="block text-sm font-medium text-slate-700 mb-2"
-                                    >
-                                        Nome
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all"
-                                        placeholder="O seu nome"
-                                    />
-                                </div>
-                                <div>
-                                    <label
-                                        htmlFor="email"
-                                        className="block text-sm font-medium text-slate-700 mb-2"
-                                    >
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all"
-                                        placeholder="seu.email@exemplo.com"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label
-                                    htmlFor="subject"
-                                    className="block text-sm font-medium text-slate-700 mb-2"
-                                >
-                                    Assunto
-                                </label>
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all"
-                                    placeholder="Assunto da mensagem"
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    htmlFor="message"
-                                    className="block text-sm font-medium text-slate-700 mb-2"
-                                >
-                                    Mensagem
-                                </label>
-                                <textarea
-                                    id="message"
-                                    rows={6}
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all resize-none"
-                                    placeholder="A sua mensagem..."
-                                ></textarea>
-                            </div>
-                            <button type="submit" className="btn-primary w-full md:w-auto">
-                                Enviar Mensagem
-                            </button>
-                        </form>
-                    </div>
+      {/* Contact Info */}
+      <Section background="white" spacing="large">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Offices */}
+          <div>
+            <h2 className="text-2xl font-medium mb-12">Escritórios</h2>
 
-                    <div>
-                        <h2 className="text-3xl font-bold mb-8 text-slate-900">
-                            Onde Estamos
-                        </h2>
-                        <div className="space-y-8">
-                            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                                <h3 className="text-xl font-bold text-brand-blue mb-4">
-                                    Lisboa, Portugal
-                                </h3>
-                                <p className="text-slate-600 mb-2">
-                                    Avenida Defensores de Chaves, 45 - 5º
-                                </p>
-                                <p className="text-slate-600 mb-4">1000-112 Lisboa</p>
-                                <p className="text-slate-600 mb-2">
-                                    <strong>Email:</strong> engimind@engimind.com
-                                </p>
-                                <p className="text-slate-600">
-                                    <strong>Tel:</strong> (+351) 21 000 00 00
-                                </p>
-                            </div>
-
-                            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                                <h3 className="text-xl font-bold text-brand-blue mb-4">
-                                    São Paulo, Brasil
-                                </h3>
-                                <p className="text-slate-600 mb-2">
-                                    Rua Gomes de Carvalho, 1629, sala 2157
-                                </p>
-                                <p className="text-slate-600 mb-4">
-                                    Vila Olímpia, São Paulo 04547-006
-                                </p>
-                                <p className="text-slate-600 mb-2">
-                                    <strong>Email:</strong> brasil@engimind.com
-                                </p>
-                                <p className="text-slate-600">
-                                    <strong>Tel:</strong> (11) 3848 9308
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <div className="space-y-8">
+              {companyInfo.offices.map((office, index) => (
+                <div key={index} className="pb-8 border-b border-[#e5e5e5]">
+                  <h3 className="text-xl font-medium mb-4">
+                    {office.city}
+                    <span className="text-[#a3a3a3] font-normal ml-2">
+                      {office.country}
+                    </span>
+                  </h3>
+                  <p className="text-body mb-4">
+                    {office.address}
+                    <br />
+                    {office.postalCode}
+                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm">
+                      <span className="text-[#a3a3a3]">Tel:</span>{" "}
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, "")}`}
+                        className="hover:text-[#2563eb] transition-colors"
+                      >
+                        {office.phone}
+                      </a>
+                    </p>
+                    <p className="text-sm">
+                      <span className="text-[#a3a3a3]">Email:</span>{" "}
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="hover:text-[#2563eb] transition-colors"
+                      >
+                        {office.email}
+                      </a>
+                    </p>
+                  </div>
                 </div>
-            </Section>
-        </main>
-    );
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h2 className="text-2xl font-medium mb-12">Envie-nos uma mensagem</h2>
+
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Nome</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 bg-[#fafafa] border border-transparent focus:border-[#0a0a0a] focus:outline-none transition-colors"
+                    placeholder="O seu nome"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 bg-[#fafafa] border border-transparent focus:border-[#0a0a0a] focus:outline-none transition-colors"
+                    placeholder="email@exemplo.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Empresa</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 bg-[#fafafa] border border-transparent focus:border-[#0a0a0a] focus:outline-none transition-colors"
+                  placeholder="Nome da empresa (opcional)"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Assunto</label>
+                <select className="w-full px-4 py-3 bg-[#fafafa] border border-transparent focus:border-[#0a0a0a] focus:outline-none transition-colors">
+                  <option value="">Selecione um assunto</option>
+                  <option value="project">Novo Projeto</option>
+                  <option value="partnership">Parceria</option>
+                  <option value="career">Carreiras</option>
+                  <option value="other">Outro</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  rows={5}
+                  className="w-full px-4 py-3 bg-[#fafafa] border border-transparent focus:border-[#0a0a0a] focus:outline-none transition-colors resize-none"
+                  placeholder="Como podemos ajudar?"
+                />
+              </div>
+
+              <button type="submit" className="btn-primary w-full md:w-auto">
+                Enviar mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </Section>
+
+      {/* Map placeholder */}
+      <Section background="light" spacing="none" container="full">
+        <div className="h-96 bg-[#e5e5e5] flex items-center justify-center">
+          <p className="text-[#a3a3a3]">Mapa</p>
+        </div>
+      </Section>
+    </>
+  );
 }

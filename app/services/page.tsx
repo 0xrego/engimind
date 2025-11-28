@@ -1,129 +1,98 @@
-import Hero from "@/components/Hero";
+import BigHero from "@/components/BigHero";
 import Section from "@/components/Section";
-import ServicesGrid from "@/components/ServicesGrid";
+import ServiceCard from "@/components/ServiceCard";
+import Link from "next/link";
+import { services } from "@/content/services";
+
+export const metadata = {
+  title: "Serviços",
+  description: "Serviços especializados em mobilidade, transportes, microssimulação e planeamento urbano.",
+};
 
 export default function Services() {
-    const services = [
-        {
-            title: "Estudos de Tráfego",
-            description:
-                "Análise e previsão de tráfego para infraestruturas rodoviárias e empreendimentos urbanísticos. Avaliamos o impacto na rede viária e propomos soluções de mitigação.",
-            features: [
-                "Contagens de tráfego",
-                "Análise de capacidade e níveis de serviço",
-                "Estudos de impacto de tráfego",
-                "Dimensionamento de interseções",
-            ],
-        },
-        {
-            title: "Microssimulação",
-            description:
-                "Utilização de software avançado (VISSIM, AIMSUN) para simular o comportamento individual de veículos e peões, permitindo validar soluções complexas e visualizar o funcionamento futuro.",
-            features: [
-                "Simulação dinâmica de tráfego",
-                "Modelação de peões (Viswalk)",
-                "Análise de interfaces de transporte",
-                "Otimização semafórica",
-            ],
-        },
-        {
-            title: "Planos de Mobilidade",
-            description:
-                "Desenvolvimento de Planos de Mobilidade Urbana Sustentável (PMUS) e planos de transporte para empresas e grandes polos geradores de tráfego.",
-            features: [
-                "PMUS municipais e regionais",
-                "Planos de mobilidade empresarial",
-                "Estratégias de modos suaves",
-                "Gestão da procura",
-            ],
-        },
-        {
-            title: "Transportes Públicos",
-            description:
-                "Planeamento e otimização de redes de transporte coletivo, desde a reestruturação de linhas de autocarro até ao planeamento de sistemas de metro e BRT.",
-            features: [
-                "Redesenho de redes",
-                "Estudos de procura",
-                "Integração intermodal",
-                "Priorização viária",
-            ],
-        },
-        {
-            title: "Estacionamento",
-            description:
-                "Estudos de oferta e procura de estacionamento, definição de políticas de tarifação e gestão, e projeto funcional de parques de estacionamento.",
-            features: [
-                "Levantamentos de ocupação",
-                "Políticas de gestão",
-                "Projeto funcional de parques",
-                "Sistemas de controlo de acessos",
-            ],
-        },
-        {
-            title: "Modos Suaves",
-            description:
-                "Planeamento e projeto de infraestruturas para peões e ciclistas, promovendo a mobilidade ativa e a humanização do espaço público.",
-            features: [
-                "Redes cicláveis",
-                "Planos de acessibilidade pedonal",
-                "Zonas de Coexistência",
-                "Design urbano inclusivo",
-            ],
-        },
-        {
-            title: "Segurança Rodoviária",
-            description:
-                "Auditorias e inspeções de segurança rodoviária para identificar riscos e propor medidas corretivas que reduzam a sinistralidade.",
-            features: [
-                "Auditorias de segurança",
-                "Análise de pontos negros",
-                "Medidas de acalmia de tráfego",
-                "Planos de segurança",
-            ],
-        },
-        {
-            title: "Logística Urbana",
-            description:
-                "Estudos para otimização da distribuição de mercadorias em meio urbano, cargas e descargas, e acessibilidade a zonas comerciais.",
-            features: [
-                "Planos de logística urbana",
-                "Regulamentação de cargas e descargas",
-                "Last mile delivery",
-                "Centros de consolidação",
-            ],
-        },
-        {
-            title: "Rentabilidade Económica",
-            description:
-                "Análise custo-benefício de projetos de transportes para apoiar a tomada de decisão e fundamentar candidaturas a financiamento.",
-            features: [
-                "Análise Custo-Benefício (ACB)",
-                "Estudos de viabilidade económica",
-                "Análise multicritério",
-                "Avaliação de investimentos",
-            ],
-        },
-    ];
+  return (
+    <>
+      {/* Hero */}
+      <BigHero
+        title="Serviços"
+        subtitle="Soluções integradas e especializadas para todos os desafios da mobilidade e transportes."
+        backgroundImage="/images/servicos.png"
+        caption="O que fazemos"
+      />
 
-    return (
-        <main>
-            <Hero
-                title="Os Nossos Serviços"
-                subtitle="Soluções integradas e especializadas para todos os desafios da mobilidade."
-                backgroundImage="/images/hero-services.jpg"
+      {/* Intro */}
+      <Section background="white" spacing="large">
+        <div className="max-w-3xl">
+          <p className="text-xl md:text-2xl text-[#525252] leading-relaxed">
+            A equipa técnica da ENGIMIND tem desenvolvido competências em
+            diversas áreas relacionadas com os transportes e a mobilidade. Em
+            conjunto com parcerias estratégicas, oferecemos uma abordagem
+            multidisciplinar e completa.
+          </p>
+        </div>
+      </Section>
+
+      {/* Services List */}
+      <Section background="white" spacing="none">
+        <div className="border-t border-[#e5e5e5]">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              slug={service.slug}
+              title={service.title}
+              description={service.description}
+              features={service.features}
+              index={index}
             />
+          ))}
+        </div>
+      </Section>
 
-            <Section>
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        A equipa técnica da ENGIMIND tem desenvolvido competências em
-                        diversas áreas relacionadas com os transportes e a mobilidade. Em
-                        conjunto com parcerias estratégicas, oferecemos uma abordagem
-                        multidisciplinar e completa.
-                    </p>
-                </div>
-                <ServicesGrid services={services} />
-            </Section>
-        </main>
-    );
+      {/* Software & Tools */}
+      <Section background="light" spacing="large">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-caption mb-4">Formação Certificada</p>
+            <h2 className="text-headline mb-6">Cursos PTV Group</h2>
+            <p className="text-body mb-8">
+              A ENGIMIND é certificada pela PTV Group, líder mundial em software
+              de análise de redes de transporte, para ministrar formação
+              certificada nos seus softwares Visum, Vissim, Viswalk e Vistro.
+            </p>
+            <Link href="/courses" className="btn-secondary">
+              Ver cursos
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {["VISUM", "VISSIM", "VISWALK", "VISTRO"].map((tool) => (
+              <div
+                key={tool}
+                className="p-8 bg-white text-center hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 cursor-pointer"
+              >
+                <span className="text-2xl font-medium">{tool}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* CTA */}
+      <Section background="dark" spacing="large">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-headline text-white mb-6">
+            Precisa de uma solução?
+          </h2>
+          <p className="text-lg text-white/60 mb-10">
+            Contacte-nos para discutir o seu projeto. A nossa equipa está pronta
+            para ajudar a encontrar a melhor solução para os seus desafios de
+            mobilidade.
+          </p>
+          <Link href="/contacts" className="btn-primary !bg-white !text-[#0a0a0a] hover:!bg-white/90">
+            Contactar
+          </Link>
+        </div>
+      </Section>
+    </>
+  );
 }
